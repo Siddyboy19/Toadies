@@ -39,7 +39,7 @@ export default function Hero({ onGalleryClick }) {
         </div>
         <div className="hero__chip hero__chip--live">
           <span className="hero__chip-dot"/>
-          <span className="hero__chip-label">FCFS Live</span>
+          <span className="hero__chip-label">FCFS Spot Request Live</span>
         </div>
       </div>
 

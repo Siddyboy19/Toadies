@@ -8,7 +8,7 @@ const SITE   = 'https://toadies.xyz';
 const TASKS_LINK = `${SITE}/mint-permit#tasks`;
 
 const TWEET_TEXT = encodeURIComponent(
-  `🐸 Just dropped my Mint Permit request for @Toadies_!\n\n4,444 unique Toadies are hopping onto Ethereum — the most dedicated frogs get Guaranteed WL & FCFS spots. No promises, just pure swamp energy 🌿⚡\n\nAre you in? Come join the swamp 👇\n${TASKS_LINK}\n\n#ToadiesNFT #NFT #Ethereum #Web3`
+  `🐸 Just dropped my Mint Permit request for @Toadies_\n\n4,444 unique Toadies are hopping onto Ethereum — the most dedicated frogs get Guaranteed WL & FCFS spots. No promises, just pure swamp energy ⚡\n\nAre you in? Come join the swamp 👇\n${TASKS_LINK}\n\n#ToadiesNFT #NFT`
 );
 const SHARE_URL = `https://twitter.com/intent/tweet?text=${TWEET_TEXT}`;
 
@@ -198,7 +198,7 @@ export default function MintForm() {
           <div className="mf-header__ticket">
             <img src="/mint-ticket.png" alt="Toadies Mint Permit Ticket" className="mf-header__ticket-img" />
           </div>
-          <span className="mf-header__badge">MINT PERMIT · FCFS PHASE OPEN</span>
+          <span className="mf-header__badge">MINT PERMIT · FCFS SPOT REQUEST OPEN</span>
           <h1 className="mf-header__title">Toadies Mint Permit</h1>
           <p className="mf-header__sub">
             Filling this form <strong>does not guarantee</strong> a spot.<br/>
@@ -369,7 +369,7 @@ export default function MintForm() {
             ⚠️ Submitting this form <strong>does not guarantee</strong> a mint spot.
             We monitor all submitted accounts for genuine engagement — tweeting, shilling, and
             supporting Toadies from the heart gives you the best chance at a
-            Guaranteed WL or FCFS spot. Stay active, stay in the swamp 🌿
+            Guaranteed WL or FCFS Spot Request. Stay active, stay in the swamp 🌿
           </p>
         </form>
 

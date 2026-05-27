@@ -2,10 +2,10 @@ import React from 'react';
 import './Stats.css';
 
 const STATS = [
-  { num:'4,444', label:'🐸 Total Supply'      },
-  { num:'ETH',   label:'⛓️ Ethereum Mainnet'  },
-  { num:'FCFS',  label:'🌿 Phase Live Now'     },
-  { num:'∞',     label:'⚡ Swamp Vibes'        },
+  { num:'4,444', label:'🐸 Total Supply'           },
+  { num:'ETH',   label:'⛓️ Ethereum Mainnet'       },
+  { num:'FCFS',  label:'🌿 Spot Request Live'       },
+  { num:'∞',     label:'⚡ Swamp Vibes'             },
 ];
 
 export default function Stats({ statsRef }) {

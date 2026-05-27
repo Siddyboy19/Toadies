@@ -17,9 +17,9 @@ const DiscordIcon = () => (
 
 const TICKER_ITEMS = [
   '🐸 TOADIES NFT','⚡ ETHEREUM','🌿 4,444 SUPPLY',
-  '💚 SWAMP VIBES','🌊 FCFS LIVE','💎 PURE ART',
+  '💚 SWAMP VIBES','🌊 FCFS SPOT REQUEST LIVE','💎 PURE ART',
   '🐸 TOADIES NFT','⚡ ETHEREUM','🌿 4,444 SUPPLY',
-  '💚 SWAMP VIBES','🌊 FCFS LIVE','💎 PURE ART',
+  '💚 SWAMP VIBES','🌊 FCFS SPOT REQUEST LIVE','💎 PURE ART',
 ];
 
 export default function Footer() {
@@ -72,13 +72,13 @@ export default function Footer() {
               </svg>
               <span className="footer__col-stat-label">Ethereum Mainnet</span>
             </li>
-            <li><span className="footer__col-stat-live">● FCFS Phase Live</span></li>
+            <li><span className="footer__col-stat-live">● FCFS Spot Request Live</span></li>
           </ul>
         </div>
 
       </div>
 
-      {/* bottom bar — Fix 4: white X + Discord icons only */}
+      {/* bottom bar */}
       <div className="footer__bottom">
         <p className="footer__copy">© 2026 Toadies NFT · Pure Digital Art · Just Vibes 🐸</p>
 
