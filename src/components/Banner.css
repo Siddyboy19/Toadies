@@ -1,0 +1,210 @@
+/* =============================================
+   BANNER — Full-screen hero image behind transparent navbar
+   ============================================= */
+
+.banner {
+  position: relative;
+  width: 100vw;
+  height: 100vh;        /* full screen — navbar overlays it */
+  margin-top: 0;
+  overflow: hidden;
+  display: block;
+}
+
+/* The actual image */
+.banner__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  animation: bannerReveal 1.1s cubic-bezier(.22,.61,.36,1) both;
+}
+
+@keyframes bannerReveal {
+  from { opacity: 0; transform: scale(1.04); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Gradient overlays */
+.banner__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,15,5,.35)  0%,
+      transparent       22%,
+      transparent       65%,
+      rgba(5,15,5,.75)  88%,
+      rgba(5,15,5,.95) 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(5,15,5,.22) 0%,
+      transparent      18%,
+      transparent      82%,
+      rgba(5,15,5,.22) 100%
+    );
+  z-index: 1;
+}
+
+/* Scanline texture */
+.banner__scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,.06) 3px,
+    rgba(0,0,0,.06) 4px
+  );
+  opacity: .55;
+}
+
+/* Corner glows */
+.banner__glow-tl,
+.banner__glow-br {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  filter: blur(90px);
+  opacity: .18;
+  animation: glowPulse 4s ease-in-out infinite alternate;
+}
+.banner__glow-tl {
+  top: -100px; left: -100px;
+  background: radial-gradient(circle, #7fff00 0%, transparent 70%);
+  animation-delay: 0s;
+}
+.banner__glow-br {
+  bottom: -100px; right: -100px;
+  background: radial-gradient(circle, #00e5ff 0%, transparent 70%);
+  animation-delay: 2s;
+}
+@keyframes glowPulse {
+  from { opacity: .14; transform: scale(.9); }
+  to   { opacity: .28; transform: scale(1.1); }
+}
+
+/* Bottom neon border */
+.banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  border-bottom: 2px solid rgba(127,255,0,.28);
+  box-shadow: inset 0 -1px 0 rgba(127,255,0,.12);
+}
+
+/* Live badge */
+.banner__badge {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(5,15,5,.72);
+  border: 1.5px solid rgba(127,255,0,.4);
+  border-radius: 50px;
+  padding: 9px 24px;
+  backdrop-filter: blur(12px);
+  white-space: nowrap;
+  animation: badgeFadeUp .9s .5s cubic-bezier(.22,.61,.36,1) both;
+}
+@keyframes badgeFadeUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(18px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+.banner__badge-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #7fff00;
+  box-shadow: 0 0 8px #7fff00;
+  animation: dotBlink 1.3s ease-in-out infinite;
+}
+@keyframes dotBlink { 0%,100%{opacity:1;} 50%{opacity:.25;} }
+.banner__badge-text {
+  font-family: 'Fredoka One', cursive;
+  font-size: .92rem;
+  color: #b5ff3a;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.banner__badge-sep {
+  color: rgba(127,255,0,.35);
+  font-size: .75rem;
+}
+.banner__badge-eth {
+  font-family: 'Fredoka One', cursive;
+  font-size: .88rem;
+  color: #00e5ff;
+  letter-spacing: 1px;
+}
+
+/* Scroll-down arrow */
+.banner__scroll-arrow {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  animation: arrowBounce 2s ease-in-out infinite;
+  border: none;
+  background: none;
+  padding: 8px;
+}
+@keyframes arrowBounce {
+  0%,100% { transform: translateX(-50%) translateY(0); opacity: .9; }
+  50%     { transform: translateX(-50%) translateY(10px); opacity: 1; }
+}
+.banner__scroll-arrow-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: .75rem;
+  color: rgba(127,255,0,.7);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.banner__scroll-arrow svg {
+  filter: drop-shadow(0 0 8px rgba(127,255,0,.6));
+}
+
+/* ══════════════════
+   RESPONSIVE
+══════════════════ */
+@media (max-width: 768px) {
+  .banner__glow-tl,
+  .banner__glow-br { width: 280px; height: 280px; }
+  .banner__badge { bottom: 80px; padding: 8px 18px; gap: 8px; }
+  .banner__badge-text { font-size: .82rem; }
+}
+
+@media (max-width: 480px) {
+  .banner__img { object-position: 60% center; }
+  .banner__glow-tl,
+  .banner__glow-br { display: none; }
+  .banner__badge { bottom: 72px; padding: 7px 14px; gap: 6px; }
+  .banner__badge-sep { display: none; }
+  .banner__badge-eth { display: none; }
+}
+
+@media (max-height: 500px) {
+  .banner { min-height: 260px; }
+}

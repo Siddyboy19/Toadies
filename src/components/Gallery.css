@@ -1,0 +1,53 @@
+.gallery {
+  position: relative; z-index: 1;
+  padding: 60px 0 20px;
+}
+
+.gallery__head {
+  text-align: center;
+  margin-bottom: 36px;
+  padding: 0 24px;
+}
+
+.gallery__eyebrow {
+  font-family: 'Fredoka One', cursive;
+  font-size: .75rem; letter-spacing: 4px;
+  color: rgba(127,255,0,.5);
+  display: block; margin-bottom: 10px;
+}
+
+.gallery__title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(2rem,4.5vw,3.4rem);
+  background: linear-gradient(135deg, var(--neon), var(--cyan));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  animation: galleryShimmer 4s ease-in-out infinite;
+}
+@keyframes galleryShimmer {
+  0%,100%{filter:drop-shadow(0 3px 16px rgba(127,255,0,.45));}
+  50%{filter:drop-shadow(0 3px 36px rgba(0,229,255,.75));}
+}
+
+.gallery__sub {
+  font-family: 'Bubblegum Sans', cursive;
+  color: rgba(181,255,58,.65); font-size: 1rem;
+  margin-bottom: 14px;
+}
+.gallery__supply {
+  font-family: 'Fredoka One', cursive; font-size: 1.2rem;
+  color: var(--neon); text-shadow: 0 0 12px rgba(127,255,0,.5);
+}
+.gallery__eth {
+  font-family: 'Fredoka One', cursive; color: var(--cyan);
+}
+
+.gallery__chain-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'Patrick Hand', cursive; font-size: .82rem;
+  color: rgba(0,229,255,.7);
+  background: rgba(0,229,255,.07);
+  border: 1px solid rgba(0,229,255,.25);
+  border-radius: 20px; padding: 5px 16px;
+}

@@ -1,0 +1,77 @@
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 80px 24px 60px;
+  position: relative; overflow: hidden;
+}
+
+/* Title — pulse effect replaces the logo pulse */
+.hero__title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(3.5rem,9vw,7.5rem);
+  background: linear-gradient(135deg,#7fff00 0%,#4ecb4e 28%,#00e5ff 62%,#ffd700 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  filter: drop-shadow(0 4px 20px rgba(127,255,0,.45));
+  animation: titleShimmer 3.5s ease-in-out infinite;
+  line-height: 1.05; margin: 0 0 10px;
+  transition: filter .3s;
+}
+.hero__title--pulse {
+  filter: drop-shadow(0 4px 44px rgba(0,229,255,.85));
+}
+@keyframes titleShimmer {
+  0%,100%{filter:drop-shadow(0 4px 20px rgba(127,255,0,.45));}
+  50%{filter:drop-shadow(0 4px 44px rgba(0,229,255,.8));}
+}
+
+.hero__sub {
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: clamp(1rem,2.8vw,1.6rem); color: var(--lime); margin-bottom: 26px;
+}
+
+/* Chips */
+.hero__chips {
+  display: flex; gap: 12px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 34px;
+}
+.hero__chip {
+  background: rgba(78,203,78,.08);
+  border: 2px solid rgba(78,203,78,.28); border-radius: 16px;
+  padding: 12px 20px; display: flex; flex-direction: column;
+  align-items: center; gap: 4px; min-width: 100px;
+  transition: all .3s; cursor: default;
+}
+.hero__chip:hover { border-color: var(--neon); background: rgba(127,255,0,.12); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(127,255,0,.22); }
+.hero__chip--eth { border-color: rgba(0,229,255,.3); }
+.hero__chip--eth:hover { border-color: var(--cyan); box-shadow: 0 8px 24px rgba(0,229,255,.28); }
+.hero__chip--live { border-color: rgba(127,255,0,.4); animation: liveChip 2s ease-in-out infinite; }
+@keyframes liveChip { 0%,100%{box-shadow:0 0 8px rgba(127,255,0,.3);} 50%{box-shadow:0 0 22px rgba(127,255,0,.7);} }
+.hero__chip-num { font-family: 'Fredoka One', cursive; font-size: 1.55rem; color: var(--neon); text-shadow: 0 0 12px rgba(127,255,0,.5); }
+.hero__eth-icon { width: 22px; height: 22px; color: var(--cyan); }
+.hero__chip-label { font-family: 'Patrick Hand', cursive; font-size: .75rem; color: rgba(181,255,58,.6); letter-spacing: 1px; }
+.hero__chip-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--neon); box-shadow: 0 0 8px var(--neon); animation: dotBlink 1.2s ease-in-out infinite; }
+@keyframes dotBlink { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+/* Buttons */
+.hero__btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 8px; }
+.hero__btn {
+  font-family: 'Fredoka One', cursive; font-size: 1.2rem;
+  padding: 13px 38px; border-radius: 50px; cursor: pointer;
+  transition: all .3s; text-decoration: none;
+  display: inline-flex; align-items: center; letter-spacing: .5px;
+}
+.hero__btn--primary {
+  background: linear-gradient(135deg,var(--bright),var(--neon));
+  color: var(--dark); border: none;
+  animation: btnPulse 2.5s ease-in-out infinite;
+}
+@keyframes btnPulse { 0%,100%{box-shadow:0 0 20px rgba(127,255,0,.45);} 50%{box-shadow:0 0 50px rgba(127,255,0,.85),0 0 80px rgba(0,229,255,.22);} }
+.hero__btn--primary:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 12px 50px rgba(127,255,0,.75); }
+.hero__btn--mint { background: transparent; color: var(--neon); border: 2px solid var(--neon); box-shadow: 0 0 14px rgba(127,255,0,.22); }
+.hero__btn--mint:hover { background: rgba(127,255,0,.12); transform: translateY(-5px) scale(1.05); box-shadow: 0 12px 40px rgba(127,255,0,.5); }
+
+/* Ticker */
+.hero__ticker-wrap { width: 100vw; margin-left: calc(-50vw + 50%); overflow: hidden; background: rgba(78,203,78,.09); border-top: 2px solid rgba(78,203,78,.25); border-bottom: 2px solid rgba(78,203,78,.25); padding: 11px 0; margin-top: 50px; }
+.hero__ticker-inner { display: flex; white-space: nowrap; animation: tickerScroll 28s linear infinite; }
+.hero__ticker-item { font-family: 'Fredoka One', cursive; color: var(--neon); font-size: 1rem; padding: 0 40px; letter-spacing: 2px; }
+@keyframes tickerScroll { from{transform:translateX(0);} to{transform:translateX(-50%);} }

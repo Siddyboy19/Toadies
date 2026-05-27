@@ -1,0 +1,108 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0,0,0,.82);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: overlayIn .2s ease-out;
+}
+@keyframes overlayIn { from { opacity:0; } to { opacity:1; } }
+
+.modal-card {
+  background: linear-gradient(148deg, #0d2b0d, #1a4a1a);
+  border: 3px solid var(--neon);
+  border-radius: 26px;
+  overflow: hidden;
+  max-width: 580px;
+  width: 100%;
+  box-shadow: 0 0 65px rgba(127,255,0,.38), 0 0 130px rgba(78,203,78,.18);
+  animation: modalPop .42s cubic-bezier(.175,.885,.32,1.275);
+}
+@keyframes modalPop {
+  from { transform: scale(.68) rotate(-4deg); opacity:0; }
+  to   { transform: scale(1)   rotate(0deg);  opacity:1; }
+}
+
+.modal-card__img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-card__body { padding: 28px; }
+
+.modal-card__name {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.1rem;
+  color: var(--neon);
+  margin-bottom: 10px;
+  text-shadow: 0 0 14px rgba(127,255,0,.5);
+}
+
+.modal-card__rarity {
+  display: inline-block;
+  font-family: 'Fredoka One', cursive;
+  font-size: .95rem;
+  padding: 5px 18px;
+  border-radius: 14px;
+  border: 1px solid;
+  margin-bottom: 22px;
+  letter-spacing: 2px;
+}
+
+.modal-card__traits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.modal-card__trait {
+  background: rgba(78,203,78,.1);
+  border: 1px solid rgba(78,203,78,.3);
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.modal-card__trait-key {
+  font-family: 'Patrick Hand', cursive;
+  color: rgba(181,255,58,.55);
+  font-size: .78rem;
+}
+.modal-card__trait-val {
+  font-family: 'Bubblegum Sans', cursive;
+  color: var(--lime);
+  font-size: .95rem;
+}
+
+.modal-card__token {
+  font-family: 'Patrick Hand', cursive;
+  color: rgba(181,255,58,.45);
+  font-size: .85rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-card__close {
+  display: block;
+  margin: 0 auto;
+  font-family: 'Fredoka One', cursive;
+  background: linear-gradient(135deg, var(--bright), var(--neon));
+  color: var(--dark);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 44px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all .3s;
+}
+.modal-card__close:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 28px rgba(127,255,0,.65);
+}
